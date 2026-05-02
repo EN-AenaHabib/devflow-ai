@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevFlow AI</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">DevFlow AI ⚡</div>
+
+  <div class="controls">
+    <div id="timeSaved" class="status-msg"></div>
+    <button class="run-btn" onclick="runTask()">Run ▶</button>
+  </div>
+</header>
+
+<main class="workspace">
+
+  <!-- INPUT -->
+  <div class="editor-section">
+
+    <div class="label-row">
+      <span>Input Code</span>
+
+      <div class="task-tabs">
+        <button class="task-btn active" onclick="setTask('docs', this)">Docs</button>
+        <button class="task-btn" onclick="setTask('tests', this)">Tests</button>
+        <button class="task-btn" onclick="setTask('refactor', this)">Refactor</button>
+        <button class="task-btn" onclick="setTask('review', this)">Review</button>
+      </div>
+    </div>
+
+    <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="output-section">
+
+    <div class="label-row">
+      <span>Output</span>
+      <span class="ai-badge">IBM Bob Powered</span>
+    </div>
+
+    <div id="outputBox" class="output-box">
+      // Output will appear here...
+    </div>
+
+  </div>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>

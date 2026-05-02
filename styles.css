@@ -1,0 +1,186 @@
+:root {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --border: #30363d;
+  --text-main: #c9d1d9;
+  --text-muted: #8b949e;
+  --accent: #2f81f7;
+  --success: #3fb950;
+  --font-mono: 'SFMono-Regular', Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial;
+  background: var(--bg);
+  color: var(--text-main);
+  height: 100vh;
+}
+
+/* NAVBAR */
+.navbar {
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.run-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.run-btn:hover {
+  background: #4094ff;
+}
+
+/* LAYOUT */
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 60px);
+  gap: 10px;
+  padding: 15px;
+}
+
+/* PANELS */
+.editor-section,
+.output-section {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL ROW */
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+/* TASK BUTTONS */
+.task-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.task-btn {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 5px 10px;
+  font-size: 11px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.task-btn:hover {
+  background: #21262d;
+}
+
+.task-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* TEXTAREA */
+textarea {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #e6edf3;
+  resize: none;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: var(--accent);
+}
+
+/* OUTPUT BOX (GLASS EFFECT) */
+.output-box {
+  flex: 1;
+  background: rgba(22, 27, 34, 0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #e6edf3;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease;
+}
+
+/* TIME SAVED TEXT */
+.status-msg {
+  color: var(--success);
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+/* SMALL AI BADGE */
+.ai-badge {
+  font-size: 11px;
+  color: var(--accent);
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
