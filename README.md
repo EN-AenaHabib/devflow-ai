@@ -7,6 +7,8 @@ DevFlow AI is a high-performance, minimalist developer companion designed to eli
 [![Hackathon](https://img.shields.io/badge/Event-IBM_Bob_Dev_Day-blue?style=flat-square)](#)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](#)
 
+
+![DevFlow AI UI](ui.png)
 ---
 
 ## 🚀 Key Features
