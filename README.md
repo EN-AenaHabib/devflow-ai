@@ -29,9 +29,22 @@ One interface, four mission-critical developer tools:
 
 To ensure a seamless and high-speed demonstration during the **IBM Bob Dev Day**, we utilized a hybrid simulation strategy:
 
-* **Pre-Generated Intelligence:** Responses were architected using **IBM Bob** during the research phase to ensure high-quality, technically accurate outputs for Documentation, Testing, and Refactoring.
+* **Pre-Generated Intelligence:** Responses were architected using **IBM Bob** during the research phase to ensure high-quality, technically accurate outputs.
 * **Real-Time Simulation:** The UI utilizes a custom `async` typing engine in `app.js` that mimics the streaming behavior of live LLMs. 
 * **Deterministic Reliability:** By using pre-validated AI responses, the tool avoids API latency and "hallucination" issues, ensuring a 100% success rate during live judging.
+
+---
+
+## 🤖 Prompt Engineering & Demo Logic
+
+The following prompts were engineered within **IBM Bob** to generate the core logic used in this demo:
+
+| Task | Demo Prompt / Instruction | Logic Applied |
+| :--- | :--- | :--- |
+| **Docs** | "Generate full documentation for this function" | JSDoc standards, param mapping, and error handling notes. |
+| **Tests** | "Write full unit tests for edge cases and normal cases" | Boundary testing, Jest syntax, and mock data injection. |
+| **Refactor** | "Refactor this code using clean coding principles" | DRY principle, ES6+ syntax, and descriptive naming. |
+| **Review** | "Review this code for security issues and improvements" | SQL injection detection, password hashing checks, and performance tips. |
 
 ---
 
@@ -41,7 +54,7 @@ Built with a focus on speed and lightweight performance:
 * **Frontend:** HTML5 & CSS3 (Custom Grid/Flexbox Architecture)
 * **Logic:** Vanilla JavaScript (ES6+)
 * **Style:** Minimalist Professional Dark Theme
-* **AI Simulation:** IBM Bob-inspired prompt engineering logic
+* **AI Logic Provider:** IBM Bob (Pre-generated high-fidelity datasets)
 
 ---
 
@@ -63,16 +76,6 @@ devflow-ai/
 2. **Selection:** Choose your objective (Docs, Tests, Refactor, or Review).
 3. **Execute:** Click `Run ↗`.
 4. **Analyze:** Review the AI output and track the time efficiency gained.
-
----
-
-## 🎯 Example Flow
-
-| Task | Input | AI Output |
-| :--- | :--- | :--- |
-| **Docs** | `function add(a, b) { ... }` | Full JSDoc header with params and return types. |
-| **Refactor** | Nested if-else blocks | Clean early-return pattern implementation. |
-| **Tests** | Data processing logic | Jest/Mocha test cases with mock data. |
 
 ---
 
