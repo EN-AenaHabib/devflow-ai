@@ -26,6 +26,15 @@ One interface, four mission-critical developer tools:
 * **Productivity Metrics:** Real-time tracking of "Time Saved" per task.
 
 ---
+## 🤖 IBM Bob Usage
+
+All AI outputs in this project were generated using IBM Bob through structured prompts covering:
+- Documentation generation
+- Unit testing
+- Code refactoring
+- Security code review
+
+Outputs were pre-generated due to prototype constraints and integrated into the UI for demonstration.
 
 ## ⚙️ Technical Implementation: The "Mock-Live" Approach
 
