@@ -1,8 +1,3 @@
-
-
-# `README.md`
-
-```markdown
 # ⚡ DevFlow AI
 > **Turn idea into impact faster.**
 
@@ -29,6 +24,7 @@ One interface, four mission-critical developer tools:
 * **Productivity Metrics:** Real-time tracking of "Time Saved" per task.
 
 ---
+
 ## ⚙️ Technical Implementation: The "Mock-Live" Approach
 
 To ensure a seamless and high-speed demonstration during the **IBM Bob Dev Day**, we utilized a hybrid simulation strategy:
@@ -36,6 +32,7 @@ To ensure a seamless and high-speed demonstration during the **IBM Bob Dev Day**
 * **Pre-Generated Intelligence:** Responses were architected using **IBM Bob** during the research phase to ensure high-quality, technically accurate outputs for Documentation, Testing, and Refactoring.
 * **Real-Time Simulation:** The UI utilizes a custom `async` typing engine in `app.js` that mimics the streaming behavior of live LLMs. 
 * **Deterministic Reliability:** By using pre-validated AI responses, the tool avoids API latency and "hallucination" issues, ensuring a 100% success rate during live judging.
+
 ---
 
 ## 🛠️ Tech Stack
@@ -62,10 +59,10 @@ devflow-ai/
 
 ## 🧠 How It Works
 
-1.  **Input:** Paste your raw code into the editor.
-2.  **Selection:** Choose your objective (Docs, Tests, Refactor, or Review).
-3.  **Execute:** Click `Run ↗`.
-4.  **Analyze:** Review the AI output and track the time efficiency gained.
+1. **Input:** Paste your raw code into the editor.
+2. **Selection:** Choose your objective (Docs, Tests, Refactor, or Review).
+3. **Execute:** Click `Run ↗`.
+4. **Analyze:** Review the AI output and track the time efficiency gained.
 
 ---
 
@@ -89,7 +86,4 @@ devflow-ai/
 ## 👨‍💻 Author
 **Built for the IBM Bob Dev Day Hackathon** 🚀
 
-*Focused on demonstrating how bob can reduce repetitive developer work and accelerate the path from idea to deployment.*
-```
-
----
+*Focused on demonstrating how AI can reduce repetitive developer work and accelerate the path from idea to deployment.*
