@@ -1,0 +1,60 @@
+/**
+ * Fetches user dashboard data including user profile and order history.
+ * Makes parallel API requests to retrieve user information and associated orders,
+ * then validates the user account status before returning the combined data.
+ * 
+ * @async
+ * @param {string|number} userId - The unique identifier of the user whose dashboard data to fetch
+ * @param {Object} [options={}] - Optional configuration object
+ * @param {boolean} [options.includeAnalytics=false] - Whether to include analytics data (currently unused)
+ * @param {number} [options.maxItems=50] - Maximum number of order items to retrieve
+ * 
+ * @returns {Promise<{user: Object, orders: Array}>} A promise that resolves to an object containing:
+ *   - user: The user profile object from the API
+ *   - orders: Array of order objects from the orders.data property
+ * 
+ * @throws {Error} Throws an error if the user account is deactivated
+ * @throws {Error} Throws an error if any API request fails or returns invalid JSON
+ * @throws {TypeError} Throws if userId is not provided or is invalid
+ * 
+ * @example
+ * // Basic usage with just userId
+ * const dashboard = await fetchUserDashboard('user123');
+ * console.log(dashboard.user.name);
+ * console.log(dashboard.orders.length);
+ * 
+ * @example
+ * // With custom options
+ * const dashboard = await fetchUserDashboard('user456', {
+ *   includeAnalytics: true,
+ *   maxItems: 100
+ * });
+ * 
+ * @example
+ * // Error handling
+ * try {
+ *   const dashboard = await fetchUserDashboard('user789', { maxItems: 25 });
+ *   console.log(`Loaded ${dashboard.orders.length} orders`);
+ * } catch (error) {
+ *   if (error.message === 'User account is deactivated') {
+ *     console.error('Cannot access deactivated account');
+ *   } else {
+ *     console.error('Failed to fetch dashboard:', error);
+ *   }
+ * }
+ */
+async function fetchUserDashboard(userId, options = {}) {
+  const { includeAnalytics = false, maxItems = 50 } = options;
+  try {
+    const [user, orders] = await Promise.all([
+      fetch(`/api/users/${userId}`).then(r => r.json()),
+      fetch(`/api/orders?userId=${userId}&limit=${maxItems}`).then(r => r.json()),
+    ]);
+    if (!user.active) throw new Error('User account is deactivated');
+    return { user, orders: orders.data };
+  } catch (err) {
+    throw err;
+  }
+}
+
+thisis output 

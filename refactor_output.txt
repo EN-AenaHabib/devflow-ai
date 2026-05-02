@@ -1,0 +1,19 @@
+```javascript
+function filterActiveAdultUsers(users) {
+  return users
+    .filter(user => user.status === 'active' && user.age >= 18)
+    .map(({ name, email, age }) => ({ name, email, age }));
+}
+```
+
+**Improvements:**
+- Replaced cryptic variable names (`d`, `r`, `i`, `s`, `a`, `n`, `e`) with descriptive names (`users`, `user`, `status`, `age`, `name`, `email`)
+- Replaced imperative loop with declarative functional approach using `filter()` and `map()`
+- Eliminated manual array building and object construction
+- Used destructuring assignment for cleaner object mapping
+- Changed `var` to modern function parameters (implicit const in parameters)
+- Reduced code from 11 lines to 3 lines while improving readability
+- Improved performance by chaining array methods instead of nested conditionals
+- Function name now clearly describes its purpose
+- Removed redundant intermediate variables
+- Applied Single Responsibility Principle - function does one thing well

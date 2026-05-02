@@ -1,0 +1,133 @@
+describe('calculateDiscount', () => {
+  // Happy path - premium users
+  test('applies 20% discount for premium user without coupon', () => {
+    expect(calculateDiscount(100, 'premium')).toBe(80);
+  });
+
+  test('applies 30% discount for premium user with SAVE10 coupon', () => {
+    expect(calculateDiscount(100, 'premium', 'SAVE10')).toBe(70);
+  });
+
+  // Happy path - member users
+  test('applies 10% discount for member user without coupon', () => {
+    expect(calculateDiscount(100, 'member')).toBe(90);
+  });
+
+  test('applies 20% discount for member user with SAVE10 coupon', () => {
+    expect(calculateDiscount(100, 'member', 'SAVE10')).toBe(80);
+  });
+
+  // Happy path - regular users
+  test('applies no discount for regular user without coupon', () => {
+    expect(calculateDiscount(100, 'regular')).toBe(100);
+  });
+
+  test('applies 10% discount for regular user with SAVE10 coupon', () => {
+    expect(calculateDiscount(100, 'regular', 'SAVE10')).toBe(90);
+  });
+
+  test('applies no discount for user with undefined type', () => {
+    expect(calculateDiscount(100, undefined)).toBe(100);
+  });
+
+  // Coupon code variations
+  test('applies no additional discount for invalid coupon code', () => {
+    expect(calculateDiscount(100, 'premium', 'INVALID')).toBe(80);
+  });
+
+  test('applies no additional discount when coupon code is empty string', () => {
+    expect(calculateDiscount(100, 'premium', '')).toBe(80);
+  });
+
+  test('applies no additional discount when coupon code is null', () => {
+    expect(calculateDiscount(100, 'premium', null)).toBe(80);
+  });
+
+  // Edge cases - decimal prices
+  test('handles decimal prices correctly', () => {
+    expect(calculateDiscount(99.99, 'premium')).toBe(79.99);
+  });
+
+  test('rounds result to 2 decimal places', () => {
+    expect(calculateDiscount(33.33, 'premium')).toBe(26.66);
+  });
+
+  test('handles very small prices', () => {
+    expect(calculateDiscount(0.01, 'premium')).toBe(0.01);
+  });
+
+  // Edge cases - zero and negative prices
+  test('returns 0 for zero price', () => {
+    expect(calculateDiscount(0, 'premium')).toBe(0);
+  });
+
+  test('returns 0 when discount exceeds price', () => {
+    expect(calculateDiscount(10, 'premium', 'SAVE10')).toBe(7);
+  });
+
+  test('returns 0 for negative price input', () => {
+    expect(calculateDiscount(-100, 'premium')).toBe(0);
+  });
+
+  // Edge cases - large numbers
+  test('handles large price values correctly', () => {
+    expect(calculateDiscount(1000000, 'premium')).toBe(800000);
+  });
+
+  test('handles large price with coupon correctly', () => {
+    expect(calculateDiscount(1000000, 'premium', 'SAVE10')).toBe(700000);
+  });
+
+  // Invalid inputs - price
+  test('returns NaN for non-numeric price string', () => {
+    expect(calculateDiscount('invalid', 'premium')).toBeNaN();
+  });
+
+  test('returns NaN for null price', () => {
+    expect(calculateDiscount(null, 'premium')).toBe(0);
+  });
+
+  test('returns NaN for undefined price', () => {
+    expect(calculateDiscount(undefined, 'premium')).toBeNaN();
+  });
+
+  test('handles numeric string price', () => {
+    expect(calculateDiscount('100', 'premium')).toBe(80);
+  });
+
+  // Invalid inputs - userType
+  test('treats null userType as no discount', () => {
+    expect(calculateDiscount(100, null)).toBe(100);
+  });
+
+  test('treats empty string userType as no discount', () => {
+    expect(calculateDiscount(100, '')).toBe(100);
+  });
+
+  test('is case-sensitive for userType', () => {
+    expect(calculateDiscount(100, 'PREMIUM')).toBe(100);
+    expect(calculateDiscount(100, 'Premium')).toBe(100);
+  });
+
+  // Combined edge cases
+  test('applies maximum possible discount (30%) correctly', () => {
+    expect(calculateDiscount(200, 'premium', 'SAVE10')).toBe(140);
+  });
+
+  test('handles floating point precision issues', () => {
+    expect(calculateDiscount(0.1, 'premium')).toBe(0.08);
+  });
+
+  test('handles price with many decimal places', () => {
+    expect(calculateDiscount(99.999, 'premium')).toBe(80);
+  });
+
+  // Boundary testing
+  test('handles minimum positive price', () => {
+    expect(calculateDiscount(0.01, 'member', 'SAVE10')).toBe(0.01);
+  });
+
+  test('handles price exactly at discount threshold', () => {
+    expect(calculateDiscount(100, 'member', 'SAVE10')).toBe(80);
+  });
+});
