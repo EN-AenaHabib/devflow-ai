@@ -86,6 +86,8 @@ devflow-ai/
 
 ---
 
+All AI outputs are directly generated using IBM Bob and integrated into a developer productivity interface
+
 ## 👨‍💻 Author
 **Built for the IBM Bob Dev Day Hackathon** 🚀
 
