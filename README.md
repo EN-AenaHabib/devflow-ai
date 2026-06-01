@@ -15,7 +15,7 @@ https://en-aenahabib.github.io/devflow-ai/
 ![DevFlow AI UI](ui.png)
 ---
 
-## 🚀 Key Features
+##  Key Features
 
 ### ✨ 4-in-1 AI Intelligence
 One interface, four mission-critical developer tools:
@@ -30,7 +30,7 @@ One interface, four mission-critical developer tools:
 * **Productivity Metrics:** Real-time tracking of "Time Saved" per task.
 
 ---
-## 🤖 IBM Bob Usage
+## 🤖 IBM Bob Usages
 
 All AI outputs in this project were generated using IBM Bob through structured prompts covering:
 - Documentation generation
