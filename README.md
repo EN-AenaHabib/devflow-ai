@@ -17,7 +17,7 @@ https://en-aenahabib.github.io/devflow-ai/
 
 ##  Key Features
 
-### ✨ 4-in-1 AI Intelligence
+### ✨ 4-in-1 AI Intelligence ( DURC)
 One interface, four mission-critical developer tools:
 * **📄 Documentation:** Instant JSDoc-style comments and API explanations.
 * **🧪 Unit Tests:** Generates comprehensive test suites including edge cases.
